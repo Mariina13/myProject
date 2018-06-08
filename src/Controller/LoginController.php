@@ -43,8 +43,8 @@ class LoginController
         if($verifNiveau >= 9.25)
         {
             // ON VA VERS LA PAGE admin
-            $urlAdminis = $this->generateUrl("adminis");
-            return new RedirectResponse($urlAdminis);
+            $urlConnectMe = $this->generateUrl("connectMe");
+            return new RedirectResponse($urlConnectMe);
         }
         else
         {
