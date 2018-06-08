@@ -1,8 +1,7 @@
 <?php
-$UrlAccueil = $this->generateUrl("Accueil");
+$urlAccueil = $this->generateUrl("accueil");
 $UrlconnectMe   = $this->generateUrl("connectMe");
-$Urladminis   = $this->generateUrl("adminis");
-
+$UrlAdmin  = $this->generateUrl("admin");
 
 
 ?>
@@ -22,6 +21,8 @@ $Urladminis   = $this->generateUrl("adminis");
 <body>
   <header>
     <h1>Marina DAGUET - Développeuse Web Fullstack Junuior</h1>
+
+    <figure><img/></figure> 
   
   </header>
 </body>

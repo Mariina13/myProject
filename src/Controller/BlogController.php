@@ -19,23 +19,23 @@ class BlogController
     /**
       * @Route("/", name="accueil")
       */   
-    public function accueil (Request $objetRequest, Connection $objetConnection,SessionInterface $objetSession)
-    {
+      public function accueil (Request $objetRequest, Connection $objetConnection,SessionInterface $objetSession)
+      {
+           
+           ob_start();
+       
+          // METHODE DE SYMFONY POUR OBTENIR LE CHEMIN DU DOSSIER symfony1        
+          $cheminSymfony   = $this->getParameter('kernel.project_dir');
+          $cheminTemplates = "$cheminSymfony/templates"; 
+          $cheminPart      = "$cheminTemplates/part"; 
+          require_once("$cheminTemplates/template-accueil.php");
+           
           
-          ob_start();
-      
-        // METHODE DE SYMFONY POUR OBTENIR LE CHEMIN DU DOSSIER rtm-1        
-        $cheminSymfony   = $this->getParameter('kernel.project_dir');
-        $cheminTemplates = "$cheminSymfony/templates"; 
-        $cheminPart      = "$cheminTemplates/part"; 
-        require_once("$cheminTemplates/template-accueil.php");
+          $contenuCache = ob_get_clean();
           
-        
-            $contenuCache = ob_get_clean();
-            
-            return new Response($contenuCache);
-        
-    }
+          return new Response($contenuCache);
+          
+      }
     /**
       * @Route("/admin", name="admin")
       */   
@@ -58,8 +58,8 @@ class BlogController
               if($verifNiveau >= 9.25)
               {
                   // ON VA VERS LA PAGE admin
-                  $urlConnectMe = $this->generateUrl("connectMe");
-                  return new RedirectResponse($urlConnectMe);
+                  $urlAdmin = $this->generateUrl("admin");
+                  return new RedirectResponse($urlAdmin);
               }
               else
               {
